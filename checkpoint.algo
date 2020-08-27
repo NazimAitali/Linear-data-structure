@@ -1,0 +1,66 @@
+//Problem 1 Solution 1 :
+
+ALGORITHM Sum_of_distinct_elements
+VAR
+     set1 : ARRAY_OF INTEGER[4];
+     set2 : ARRAY_OF INTEGER[5];
+     i : INTEGER;
+     result : ARRAY_OF INTEGER;
+     sum : INTEGER := 0;
+BEGIN
+    set1 := [3, 1, 7, 9];
+    set2 := [2, 4, 1, 9, 3];
+    Read("set1");
+    Read("set2");
+    
+    FOR i FROM 0  TO arr1.length  DO
+        IF (arr2.[index](arr1[i]) === -1) THEN
+            result.push(arr1[i]);
+        END_IF
+    END_FOR
+    FOR i FROM 0  TO arr2.length  DO
+        IF (arr1.[index](arr2[i]) === -1) THEN
+            result.push(arr2[i]);
+        END_IF
+    END_FOR
+    FOR i FROM 0  TO result.length  DO
+        sum := sum + result[i]
+    END_FOR
+END
+
+//Problem 1 Solution 2 :
+
+ALGORITHM Sum_of_distinct_elements
+VAR
+    obj : HASH_TABLE<INTEGER,STRING>;
+    i,j : INTEGER;
+    sum : INTEGER := 0;
+    arr : ARRAY_OF INTEGER;
+    result : ARRAY_OF INTEGER;
+    
+BEGIN
+     obj.insert{(key,"3")};
+     obj.insert{(key,"1")};
+     obj.insert{(key,"7")};
+     obj.insert{(key,"9")};    
+     obj.insert{(key,"2")};
+     obj.insert{(key,"4")};
+     obj.insert{(key,"1")};
+     obj.insert{(key,"9")};
+     obj.insert{(key,"3")};
+     Read("obj");
+     
+     arr := obj.map(a=>toInteger(a.key));
+
+     FOR i FROM 0 TO arr.length  DO
+         FOR j FROM 0 TO arr.length DO
+             IF (arr[i] = arr[j] && i != j)break; THEN
+             ELSE_IF (j = arr.length - 1) THEN
+                 result.push(arr[i])
+             END_IF
+         END_FOR
+     END_FOR
+
+     sum = result.reduce((a,b)=> a + b)
+END
+
