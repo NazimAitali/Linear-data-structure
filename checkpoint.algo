@@ -7,12 +7,13 @@ VAR
      i,j : INTEGER;
      distinct : ARRAY_OF INTEGER;
      sum : INTEGER := 0;
+     found : BOOLEAN
 BEGIN
     Read("arr1");
     Read("arr2");
-   FOR i FROM 0 TO i<arr1.length  DO
+   FOR i FROM 0 TO arr1.length  DO
        found := false;
-       FOR j FROM 0 TO j<arr2.length  DO
+       FOR j FROM 0 TO arr2.length  DO
           IF (arr1[i] = arr2[j]) THEN
               found := true;
           END_IF        
@@ -22,9 +23,9 @@ BEGIN
        END_IF
    END_FOR
 
-   FOR j FROM 0 TO j<arr2.length  DO
+   FOR j FROM 0 TO arr2.length  DO
        found := false;
-       FOR i FROM 0 TO i<arr1.length  DO
+       FOR i FROM 0 TO arr1.length  DO
           IF (arr2[j] = arr1[i]) THEN
               found := true;
           END_IF        
@@ -34,7 +35,7 @@ BEGIN
        END_IF
    END_FOR
 
-   FOR k FROM 0 TO k<distinct.length DO
+   FOR k FROM 0 TO distinct.length DO
        sum += distinct[k];
    END_FOR
 
@@ -50,28 +51,27 @@ VAR
    i,j : INTEGER;
    CommonElements : ARRAY_OF INTEGER;
    sum : INTEGER := 0;
-    
 BEGIN
     Read("arr1");
     Read("arr2");
 
-    FOR i FROM 0 TO i<arr1.length  DO
-        FOR j FROM 0 TO j<arr2.length DO
+    FOR i FROM 0 TO arr1.length  DO
+        FOR j FROM 0 TO arr2.length DO
             IF (arr2[j] == arr1[i]) THEN
                 CommonElements.push(arr2[j]);
             END_IF
         END_FOR
     END_FOR
 
-    FOR j FROM 0 TO j<arr2.length  DO
-        FOR i FROM 0 TO i<arr1.length DO
+    FOR j FROM 0 TO arr2.length  DO
+        FOR i FROM 0 TO arr1.length DO
             IF (arr1[i] == arr2[j]) THEN
                 CommonElements.push(arr1[i]);
             END_IF
         END_FOR
     END_FOR
 
-    FOR k FROM 0 TO k<CommonElements.length DO
+    FOR k FROM 0 TO CommonElements.length DO
        sum += CommonElements[k];
    END_FOR
 
